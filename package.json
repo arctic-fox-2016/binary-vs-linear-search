@@ -1,0 +1,19 @@
+{
+  "name": "binary_vs_linear_searching",
+  "version": "1.0.0",
+  "description": "Binary Search vs Linear Search",
+  "main": "binary_linear.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "binary",
+    "linear"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "^2.1.0",
+    "microtime": "^2.1.1"
+  }
+}
