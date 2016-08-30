@@ -2,13 +2,40 @@
 
 var search = {};
 
-
-search.linearSearch = function(values, target){
-  //linear search code here
+search.linearSearch = function(target, values){
+    //linear search code here
+    for(var i = 0; i < values.length; i++) {
+        if (target == values[i]) {
+            return i;
+        }
+    }
+    return -1;
 }
 
-search.binarySearch = function(values, target){
-  //binary search code here
+search.binarySearch = function(target, values){
+    //binary search code here
+    var arrMin = 0;
+    var arrMax = values.length - 1;
+
+    while (1) {
+        if (target == values[Math.floor(((arrMax - arrMin) / 2)) + arrMin]) {
+            return Math.floor(((arrMax - arrMin) / 2)) + arrMin;
+        } else if (target == values[Math.ceil(((arrMax - arrMin) / 2)) + arrMin]) {
+            return Math.ceil(((arrMax - arrMin) / 2)) + arrMin;
+        } else if (arrMax == arrMin) {
+            return -1;
+        } else if (target <= values[Math.ceil((arrMax - arrMin) / 2) + arrMin]) {
+            arrMax = Math.ceil((arrMax - arrMin) / 2) + arrMin;
+
+            // Test to see arrMin arrMax changes
+            // console.log("arrMin: " + arrMin + ", arrMax: " + arrMax);
+        } else if (target > values[Math.ceil((arrMax - arrMin) / 2) + arrMin]) {
+            arrMin = Math.ceil((arrMax - arrMin) / 2) + arrMin;
+
+            // Test to see arrMin arrMax changes
+            // console.log("arrMin: " + arrMin + ", arrMax: " + arrMax);
+        }
+    }
 }
 
 module.exports = search;
