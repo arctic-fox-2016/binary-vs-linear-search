@@ -25,11 +25,11 @@ search.binarySearch = function(target, values){
         } else if (arrMax == arrMin) {
             return -1;
         } else if (target <= values[Math.ceil((arrMax - arrMin) / 2) + arrMin]) {
-            arrMax = Math.ceil((arrMax - arrMin) / 2) + arrMin;
+            arrMax = Math.floor((arrMax - arrMin) / 2) + arrMin;
 
             // Test to see arrMin arrMax changes
             // console.log("arrMin: " + arrMin + ", arrMax: " + arrMax);
-        } else if (target > values[Math.ceil((arrMax - arrMin) / 2) + arrMin]) {
+        } else if (target > values[Math.floor((arrMax - arrMin) / 2) + arrMin]) {
             arrMin = Math.ceil((arrMax - arrMin) / 2) + arrMin;
 
             // Test to see arrMin arrMax changes
@@ -37,5 +37,13 @@ search.binarySearch = function(target, values){
         }
     }
 }
+
+// Test case
+// var values = [];
+// for (var i = 0; i < 11; i++) {
+//     values.push(i+1);
+// }
+// var target = 7;
+// console.log(search.binarySearch(target, values));
 
 module.exports = search;
